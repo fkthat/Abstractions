@@ -70,7 +70,7 @@ public static class RandomGeneratorExtensions
     /// </summary>
     /// <param name="random">The <c cref="IRandomGenerator"/> instance.</param>
     /// <param name="toExclusive">The exclusive upper bound of the random number returned.</param>
-    public static int GetInt32(this IRandomGenerator random, int toExclusive)
+    public static int GetInt32(this IRandomGenerator random, int toExclusive = int.MaxValue)
     {
         _ = random ?? throw new ArgumentNullException(nameof(random));
 
