@@ -9,6 +9,13 @@ ServiceCollection services = new();
 
 services.AddTransient<IClock, SystemClock>();
 
+services.AddTransient<Func<string, IGuidGenerator>>(sp =>
+    (s => s switch
+    {
+        "system" => new SystemGuidGenerator(),
+        _ => throw new ArgumentException()
+    }));
+
 foreach (var t in Assembly.GetExecutingAssembly().GetTypes()
     .Where(t => t.IsClass && !t.IsAbstract &&
             t.IsAssignableTo(typeof(ISample))))
