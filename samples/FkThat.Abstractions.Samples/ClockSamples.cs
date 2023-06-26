@@ -11,8 +11,8 @@ internal sealed class ClockSample : ISample
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {
-        await Console.Out.WriteLineAsync($"UTC time: {_clock.UtcNow}.");
+        await Console.Out.WriteLineAsync($"UTC time: {_clock.GetUtcNow()}.");
         await Console.Out.WriteLineAsync($"Local TZ: {_clock.LocalTimeZone}.");
-        await Console.Out.WriteLineAsync($"Local time: {_clock.Now}.");
+        await Console.Out.WriteLineAsync($"Local time: {_clock.GetLocalNow()}.");
     }
 }
