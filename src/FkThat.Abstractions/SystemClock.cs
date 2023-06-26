@@ -3,11 +3,11 @@ namespace FkThat.Abstractions;
 /// <summary>
 /// Represents the system clock.
 /// </summary>
-public class SystemClock : IClock
+public sealed class SystemClock : IClock
 {
     /// <inheritdoc/>
-    public DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
+    public TimeZoneInfo LocalTimeZone => TimeZoneInfo.Local;
 
     /// <inheritdoc/>
-    public TimeZoneInfo LocalTimeZone => TimeZoneInfo.Local;
+    public DateTimeOffset GetUtcNow() => DateTimeOffset.UtcNow;
 }
