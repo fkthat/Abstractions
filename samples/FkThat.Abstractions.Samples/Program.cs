@@ -16,6 +16,14 @@ services.AddTransient<Func<string, IGuidGenerator>>(sp =>
         _ => throw new ArgumentException()
     }));
 
+services.AddTransient<Func<string, IRandomGenerator>>(sp =>
+    (s => s switch
+    {
+        "crypto" => new CryptoRandomGenerator(),
+        "pseudo" => new PseudoRandomGenerator(),
+        _ => throw new ArgumentException()
+    }));
+
 foreach (var t in Assembly.GetExecutingAssembly().GetTypes()
     .Where(t => t.IsClass && !t.IsAbstract &&
             t.IsAssignableTo(typeof(ISample))))
