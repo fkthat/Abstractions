@@ -2,17 +2,19 @@
 
 internal sealed class ClockSample : ISample
 {
+    private readonly IConsole _console;
     private readonly IClock _clock;
 
-    public ClockSample(IClock clock)
+    public ClockSample(IConsole console, IClock clock)
     {
+        _console = console;
         _clock = clock;
     }
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {
-        await Console.Out.WriteLineAsync($"UTC time: {_clock.GetUtcNow()}.");
-        await Console.Out.WriteLineAsync($"Local TZ: {_clock.LocalTimeZone}.");
-        await Console.Out.WriteLineAsync($"Local time: {_clock.GetLocalNow()}.");
+        await _console.WriteLineAsync(_clock.GetUtcNow());
+        await _console.WriteLineAsync(_clock.LocalTimeZone);
+        await _console.WriteLineAsync(_clock.GetLocalNow());
     }
 }
