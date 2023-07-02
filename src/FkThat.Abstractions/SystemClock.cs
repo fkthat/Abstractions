@@ -6,8 +6,5 @@ namespace FkThat.Abstractions;
 public sealed class SystemClock : IClock
 {
     /// <inheritdoc/>
-    public TimeZoneInfo LocalTimeZone => TimeZoneInfo.Local;
-
-    /// <inheritdoc/>
-    public DateTimeOffset GetUtcNow() => DateTimeOffset.UtcNow;
+    public DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
 }
