@@ -3,7 +3,7 @@ namespace FkThat.Abstractions.Tests;
 public class SystemClockTests
 {
     [Fact]
-    public async Task GetUtcNow_should_return_incremental_time()
+    public async Task UtcNow_should_return_incremental_time()
     {
         SystemClock sut = new();
 
@@ -11,7 +11,7 @@ public class SystemClockTests
 
         for (var i = 0; i < 16; i++)
         {
-            r.Add(sut.GetUtcNow());
+            r.Add(sut.UtcNow);
             await Task.Delay(1).ConfigureAwait(false);
         }
 
@@ -22,13 +22,6 @@ public class SystemClockTests
     public void UtcNow_should_return_UTC_time()
     {
         SystemClock sut = new();
-        sut.GetUtcNow().Offset.Should().Be(TimeSpan.Zero);
-    }
-
-    [Fact]
-    public void TimeZone_should_return_local_time_zone()
-    {
-        SystemClock sut = new();
-        sut.LocalTimeZone.Should().Be(TimeZoneInfo.Local);
+        sut.UtcNow.Offset.Should().Be(TimeSpan.Zero);
     }
 }
