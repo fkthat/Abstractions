@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace FkThat.Abstractions;
+﻿namespace FkThat.Abstractions;
 
 /// <summary>
 /// Represents an abstract console.
@@ -8,28 +6,16 @@ namespace FkThat.Abstractions;
 public interface IConsole
 {
     /// <summary>
-    /// Gets the standard input stream.
+    /// Writes the specified string value to the standard output stream.
     /// </summary>
-    [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification =
-        "Named to be consistent with System.Console.")]
-    TextReader In { get; }
+    /// <param name="value">The value to write.</param>
+    void Write(string value);
 
     /// <summary>
-    /// Gets the standard output stream.
+    /// Writes the specified string value to the standard error stream.
     /// </summary>
-    TextWriter Out { get; }
-
-    /// <summary>
-    /// Gets the standard error stream.
-    /// </summary>
-    [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification =
-        "Named to be consistent with System.Console.")]
-    TextWriter Error { get; }
-
-    /// <summary>
-    /// Gets a value indicating whether a key press is available in the input stream.
-    /// </summary>
-    bool KeyAvailable { get; }
+    /// <param name="value">The value to write.</param>
+    void WriteError(string value);
 
     /// <summary>
     /// Obtains the next character or function key pressed by the user. The pressed key is
@@ -39,5 +25,12 @@ public interface IConsole
     /// Determines whether to display the pressed key in the console window. <see langword="true"/>
     /// to not display the pressed key; otherwise, <see langword="false"/>.
     /// </param>
+    /// <returns>
+    /// An object that describes the <see cref="ConsoleKey"/> constant and Unicode character, if
+    /// any, that correspond to the pressed console key. The <see cref="ConsoleKeyInfo"/> object
+    /// also describes, in a bitwise combination of <see cref="ConsoleModifiers"/> values, whether
+    /// one or more Shift, Alt, or Ctrl modifier keys was pressed simultaneously with the console
+    /// key.
+    /// </returns>
     ConsoleKeyInfo ReadKey(bool intercept = false);
 }

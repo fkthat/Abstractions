@@ -8,17 +8,12 @@ namespace FkThat.Abstractions
     public sealed class SystemConsole : IConsole
     {
         /// <inheritdoc/>
-        public TextReader In => Console.In;
+        public void Write(string value) => Console.Write(
+            value ?? throw new ArgumentNullException(nameof(value)));
 
         /// <inheritdoc/>
-        public TextWriter Out => Console.Out;
-
-        /// <inheritdoc/>
-        public TextWriter Error => Console.Error;
-
-        /// <inheritdoc/>
-        [ExcludeFromCodeCoverage]
-        public bool KeyAvailable => Console.KeyAvailable;
+        public void WriteError(string value) => Console.Error.Write(
+            value ?? throw new ArgumentNullException(nameof(value)));
 
         /// <inheritdoc/>
         [ExcludeFromCodeCoverage]

@@ -3,23 +3,64 @@
 public sealed class SystemConsoleTests
 {
     [Fact]
-    public void In_should_return_Console_In()
+    public void Write_should_check_null_value()
     {
         SystemConsole sut = new();
-        sut.In.Should().Be(Console.In);
+
+        sut.Invoking(s => s.Write(null!))
+            .Should().Throw<ArgumentNullException>()
+            .WithParameterName("value");
     }
 
     [Fact]
-    public void Out_should_return_Console_Out()
+    public void Write_should_write_value_to_stdout()
     {
-        SystemConsole sut = new();
-        sut.Out.Should().Be(Console.Out);
+        StringWriter stdout = new();
+
+        var oldStdOut = Console.Out;
+        Console.SetOut(stdout);
+
+        try
+        {
+            SystemConsole sut = new();
+            sut.Write("foo");
+
+            stdout.ToString().Should().Be("foo");
+        }
+        finally
+        {
+            Console.SetOut(oldStdOut);
+        }
     }
 
     [Fact]
-    public void Error_should_return_Console_Error()
+    public void WriteError_should_check_null_value()
     {
         SystemConsole sut = new();
-        sut.Error.Should().Be(Console.Error);
+
+        sut.Invoking(s => s.WriteError(null!))
+            .Should().Throw<ArgumentNullException>()
+            .WithParameterName("value");
+    }
+
+    [Fact]
+    public void WriteError_should_write_value_to_stderr()
+    {
+        StringWriter stderr = new();
+
+        var oldStdErr = Console.Error;
+        Console.SetError(stderr);
+
+        try
+        {
+            SystemConsole sut = new();
+            sut.WriteError("foo");
+
+            stderr.ToString().Should().Be("foo");
+        }
+        finally
+        {
+            Console.SetOut(oldStdErr);
+        }
     }
 }

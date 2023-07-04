@@ -11,12 +11,13 @@ internal sealed class GuidGeneratorSamples : ISample
         _factory = factory;
     }
 
-    public async Task RunAsync(CancellationToken cancellationToken = default)
+    public Task RunAsync(CancellationToken cancellationToken = default)
     {
         var guidGen = _factory("system");
-        await _console.WriteLineAsync();
-        await _console.WriteLineAsync($"Some system GUIDs:");
-        await _console.WriteLineAsync(guidGen.NewGuid());
-        await _console.WriteLineAsync(guidGen.NewGuid());
+        _console.WriteLine();
+        _console.WriteLine($"System GUIDs:");
+        _console.WriteLine($"  {guidGen.NewGuid()}");
+        _console.WriteLine($"  {guidGen.NewGuid()}");
+        return Task.CompletedTask;
     }
 }
