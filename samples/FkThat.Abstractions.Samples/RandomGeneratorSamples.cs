@@ -11,17 +11,19 @@
             _factory = factory;
         }
 
-        public async Task RunAsync(CancellationToken cancellationToken = default)
+        public Task RunAsync(CancellationToken cancellationToken = default)
         {
-            foreach (var s in new[] { "crypto", "pseudo" })
+            foreach (var generatorName in new[] { "crypto", "pseudo" })
             {
-                var rand = _factory("crypto");
-                await _console.WriteLineAsync();
-                await _console.WriteLineAsync($"Randoms ({s}):");
+                var rand = _factory(generatorName);
+                _console.WriteLine();
+                _console.WriteLine($"Random ({generatorName}):");
                 var randomInts = Enumerable.Repeat(0, 6).Select(_ => rand.GetInt32());
                 var randomIntsStr = string.Join(", ", randomInts);
-                await _console.WriteLineAsync(randomIntsStr);
+                _console.WriteLine(randomIntsStr);
             }
+
+            return Task.CompletedTask;
         }
     }
 }
