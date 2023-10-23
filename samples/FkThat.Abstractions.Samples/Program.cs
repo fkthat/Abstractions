@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 
 ServiceCollection services = new();
 
-services.AddTransient<IConsole, SystemConsole>();
 services.AddTransient<IClock, SystemClock>();
 services.AddTransient<ITimeZoneInfo, SystemTimeZoneInfo>();
 
