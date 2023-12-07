@@ -1,19 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7350B6F5-5B4A-442F-9736-B7B2AEC062E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Abstractions", "src\FkThat.Abstractions\FkThat.Abstractions.csproj", "{ADC10D1B-897F-4495-A480-2BC42F22223A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FkThat.Abstractions", "src\FkThat.Abstractions\FkThat.Abstractions.csproj", "{ADC10D1B-897F-4495-A480-2BC42F22223A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7934C565-1182-447A-A040-958C3E9A9CD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Abstractions.Tests", "test\FkThat.Abstractions.Tests\FkThat.Abstractions.Tests.csproj", "{564D317F-8637-44C2-ABCB-F372459BDFE0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{93BFFC46-C7B6-447A-9983-A073CA116740}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Abstractions.Samples", "samples\FkThat.Abstractions.Samples\FkThat.Abstractions.Samples.csproj", "{673A057F-509C-4BBC-BD5C-07A28FBD04A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FkThat.Abstractions.Tests", "test\FkThat.Abstractions.Tests\FkThat.Abstractions.Tests.csproj", "{564D317F-8637-44C2-ABCB-F372459BDFE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ADC10D1B-897F-4495-A480-2BC42F22223A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -52,22 +45,12 @@ Global
 		{564D317F-8637-44C2-ABCB-F372459BDFE0}.Release|x64.Build.0 = Release|Any CPU
 		{564D317F-8637-44C2-ABCB-F372459BDFE0}.Release|x86.ActiveCfg = Release|Any CPU
 		{564D317F-8637-44C2-ABCB-F372459BDFE0}.Release|x86.Build.0 = Release|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Debug|x64.Build.0 = Debug|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Debug|x86.Build.0 = Debug|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Release|x64.ActiveCfg = Release|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Release|x64.Build.0 = Release|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Release|x86.ActiveCfg = Release|Any CPU
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{ADC10D1B-897F-4495-A480-2BC42F22223A} = {7350B6F5-5B4A-442F-9736-B7B2AEC062E2}
 		{564D317F-8637-44C2-ABCB-F372459BDFE0} = {7934C565-1182-447A-A040-958C3E9A9CD9}
-		{673A057F-509C-4BBC-BD5C-07A28FBD04A0} = {93BFFC46-C7B6-447A-9983-A073CA116740}
 	EndGlobalSection
 EndGlobal

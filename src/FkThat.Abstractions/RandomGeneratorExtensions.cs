@@ -53,14 +53,10 @@ public static class RandomGeneratorExtensions
     /// <returns></returns>
     public static byte[] GetBytes(this IRandomGenerator random, int count)
     {
-        _ = random ?? throw new ArgumentNullException(nameof(random));
+        ArgumentNullException.ThrowIfNull(random, nameof(random));
+        ArgumentOutOfRangeException.ThrowIfNegative(count, nameof(count));
 
-        if (count < 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(count));
-        }
-
-        var data = new byte[count];
+        byte[] data = new byte[count];
         random.GetBytes(data);
         return data;
     }
@@ -72,14 +68,10 @@ public static class RandomGeneratorExtensions
     /// <param name="toExclusive">The exclusive upper bound of the random number returned.</param>
     public static int GetInt32(this IRandomGenerator random, int toExclusive = int.MaxValue)
     {
-        _ = random ?? throw new ArgumentNullException(nameof(random));
+        ArgumentNullException.ThrowIfNull(random, nameof(random));
+        ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(toExclusive, 0, nameof(toExclusive));
 
-        if (toExclusive <= 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(toExclusive));
-        }
-
-        var mask = (uint)toExclusive - 1;
+        uint mask = (uint)toExclusive - 1;
         mask |= mask >> 1;
         mask |= mask >> 2;
         mask |= mask >> 4;
@@ -109,13 +101,8 @@ public static class RandomGeneratorExtensions
     /// <param name="toExclusive">The exclusive upper bound of the random number returned.</param>
     public static int GetInt32(this IRandomGenerator random, int fromInclusive, int toExclusive)
     {
-        _ = random ?? throw new ArgumentNullException(nameof(random));
-
-        if (toExclusive <= fromInclusive)
-        {
-            throw new ArgumentOutOfRangeException(nameof(toExclusive));
-        }
-
+        ArgumentNullException.ThrowIfNull(random, nameof(random));
+        ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(toExclusive, fromInclusive, nameof(toExclusive));
         return random.GetInt32(toExclusive - fromInclusive) + fromInclusive;
     }
 }
