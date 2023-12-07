@@ -12,7 +12,7 @@ public class SystemClockTests
         for (var i = 0; i < 16; i++)
         {
             r.Add(sut.UtcNow);
-            await Task.Delay(1).ConfigureAwait(false);
+            await Task.Delay(1);
         }
 
         r.Should().BeInAscendingOrder();
