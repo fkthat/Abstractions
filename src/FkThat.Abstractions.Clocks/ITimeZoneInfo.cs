@@ -1,4 +1,4 @@
-﻿namespace FkThat.Abstractions;
+﻿namespace FkThat.Abstractions.Clocks;
 
 /// <summary>
 /// Provides access to the local <see cref="TimeZoneInfo"/>.

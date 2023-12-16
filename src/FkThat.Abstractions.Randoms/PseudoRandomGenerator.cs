@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace FkThat.Abstractions;
+namespace FkThat.Abstractions.Randoms;
 
 /// <summary>
 /// Represents the random number generator that uses <c cref="Random"/>.

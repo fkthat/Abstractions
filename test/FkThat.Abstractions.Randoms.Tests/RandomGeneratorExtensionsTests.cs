@@ -1,4 +1,4 @@
-﻿namespace FkThat.Abstractions.Tests;
+﻿namespace FkThat.Abstractions.Randoms;
 
 public class RandomGeneratoreratorExtensionsTests
 {
@@ -60,8 +60,8 @@ public class RandomGeneratoreratorExtensionsTests
     [Fact]
     public void GetBytes_with_data_offset_count_should_fill_data()
     {
-        var data = new byte[] { 16, 112, 193, 67 };
-        var random = A.Fake<FakeRandomGenerator>();
+        byte[] data = new byte[] { 16, 112, 193, 67 };
+        FakeRandomGenerator random = A.Fake<FakeRandomGenerator>();
         A.CallTo(() => random.GetFakeBytes(2)).Returns(new byte[] { 42, 73 });
         IRandomGenerator sut = random;
         RandomGeneratorExtensions.GetBytes(sut, data, 1, 2);
@@ -90,8 +90,8 @@ public class RandomGeneratoreratorExtensionsTests
     [Fact]
     public void GetBytes_with_data_should_fill_data()
     {
-        var data = new byte[] { 16, 112, 193, 67 };
-        var random = A.Fake<FakeRandomGenerator>();
+        byte[] data = new byte[] { 16, 112, 193, 67 };
+        FakeRandomGenerator random = A.Fake<FakeRandomGenerator>();
         A.CallTo(() => random.GetFakeBytes(4)).Returns(new byte[] { 235, 55, 221, 159 });
         IRandomGenerator sut = random;
         RandomGeneratorExtensions.GetBytes(sut, data);
@@ -120,13 +120,13 @@ public class RandomGeneratoreratorExtensionsTests
     [Fact]
     public void GetBytes_with_count_should_return_data()
     {
-        var random = A.Fake<FakeRandomGenerator>();
+        FakeRandomGenerator random = A.Fake<FakeRandomGenerator>();
 
         A.CallTo(() => random.GetFakeBytes(4))
             .Returns(new byte[] { 235, 55, 221, 159 });
 
         IRandomGenerator sut = random;
-        var actual = RandomGeneratorExtensions.GetBytes(sut, 4);
+        byte[] actual = RandomGeneratorExtensions.GetBytes(sut, 4);
         actual.Should().Equal(new byte[] { 235, 55, 221, 159 });
     }
 
@@ -157,7 +157,7 @@ public class RandomGeneratoreratorExtensionsTests
     [Fact]
     public void GetInt32_with_toExclusive_should_return_random_int()
     {
-        var random = A.Fake<FakeRandomGenerator>();
+        FakeRandomGenerator random = A.Fake<FakeRandomGenerator>();
 
         A.CallTo(() => random.GetFakeBytes(4))
             .Returns(new byte[] { 0xff, 0xff, 0xff, 0xff }).Once().Then
@@ -165,7 +165,7 @@ public class RandomGeneratoreratorExtensionsTests
             .Returns(new byte[] { 0x00, 0x00, 0x00, 0x00 });
 
         IRandomGenerator sut = random;
-        var actual = RandomGeneratorExtensions.GetInt32(sut, 42);
+        int actual = RandomGeneratorExtensions.GetInt32(sut, 42);
         actual.Should().Be(4);
     }
 
@@ -196,7 +196,7 @@ public class RandomGeneratoreratorExtensionsTests
     [Fact]
     public void GetInt32_with_fromInclusive_toExclusive_should_return_random_int()
     {
-        var random = A.Fake<FakeRandomGenerator>();
+        FakeRandomGenerator random = A.Fake<FakeRandomGenerator>();
 
         A.CallTo(() => random.GetFakeBytes(4))
             .Returns(new byte[] { 0xff, 0xff, 0xff, 0xff }).Once().Then
@@ -204,7 +204,7 @@ public class RandomGeneratoreratorExtensionsTests
             .Returns(new byte[] { 0x00, 0x00, 0x00, 0x00 });
 
         IRandomGenerator sut = random;
-        var actual = RandomGeneratorExtensions.GetInt32(sut, 42, 73);
+        int actual = RandomGeneratorExtensions.GetInt32(sut, 42, 73);
         actual.Should().Be(46);
     }
 }

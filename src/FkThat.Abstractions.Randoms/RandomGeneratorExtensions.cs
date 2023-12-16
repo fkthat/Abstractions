@@ -1,6 +1,6 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 
-namespace FkThat.Abstractions;
+namespace FkThat.Abstractions.Randoms;
 
 /// <summary>
 /// <c cref="IRandomGenerator"/> extension methods.

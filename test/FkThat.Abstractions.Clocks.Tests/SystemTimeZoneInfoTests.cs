@@ -1,4 +1,4 @@
-﻿namespace FkThat.Abstractions.Tests;
+﻿namespace FkThat.Abstractions.Clocks;
 
 public class SystemTimeZoneInfoTests
 {
