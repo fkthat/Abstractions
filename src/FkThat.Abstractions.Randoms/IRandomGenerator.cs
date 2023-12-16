@@ -1,4 +1,4 @@
-namespace FkThat.Abstractions;
+namespace FkThat.Abstractions.Randoms;
 
 /// <summary>
 /// Represents a random number generator.

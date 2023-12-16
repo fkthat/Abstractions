@@ -1,4 +1,4 @@
-namespace FkThat.Abstractions;
+namespace FkThat.Abstractions.Clocks;
 
 /// <summary>
 /// Represents the system clock.

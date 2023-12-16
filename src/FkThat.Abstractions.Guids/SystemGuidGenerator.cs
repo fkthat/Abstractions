@@ -1,4 +1,4 @@
-namespace FkThat.Abstractions;
+namespace FkThat.Abstractions.Guids;
 
 /// <summary>
 /// Standard GUID generator.

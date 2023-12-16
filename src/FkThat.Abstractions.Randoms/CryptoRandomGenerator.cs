@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
 
-namespace FkThat.Abstractions;
+namespace FkThat.Abstractions.Randoms;
 
 /// <summary>
 /// Represents the secure random number generator that uses <c cref="RandomNumberGenerator"/>.

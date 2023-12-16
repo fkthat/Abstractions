@@ -1,4 +1,4 @@
-namespace FkThat.Abstractions.Tests;
+namespace FkThat.Abstractions.Clocks;
 
 public class SystemClockTests
 {
@@ -9,7 +9,7 @@ public class SystemClockTests
 
         List<DateTimeOffset> r = new();
 
-        for (var i = 0; i < 16; i++)
+        for (int i = 0; i < 16; i++)
         {
             r.Add(sut.UtcNow);
             await Task.Delay(1);

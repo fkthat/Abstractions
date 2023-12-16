@@ -1,4 +1,4 @@
-﻿namespace FkThat.Abstractions;
+﻿namespace FkThat.Abstractions.Clocks;
 
 /// <inheritdoc/>
 public class SystemTimeZoneInfo : ITimeZoneInfo
