@@ -132,7 +132,7 @@ csharp_new_line_before_else = true
 csharp_new_line_before_finally = true
 csharp_new_line_before_members_in_anonymous_types = true
 csharp_new_line_before_members_in_object_initializers = true
-csharp_new_line_before_open_brace = all
+csharp_new_line_before_open_brace = accessors, control_blocks, events, indexers, methods, properties, types
 csharp_new_line_between_query_expression_clauses = true
 
 # Indentation preferences
@@ -170,6 +170,9 @@ csharp_space_between_square_brackets = false
 # Wrapping preferences
 csharp_preserve_single_line_blocks = true
 csharp_preserve_single_line_statements = true
+
+# Target-typed new
+csharp_style_implicit_object_creation_when_type_is_apparent = true
 
 #### Naming styles ####
 [*.{cs,vb}]
