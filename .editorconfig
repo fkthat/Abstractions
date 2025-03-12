@@ -403,3 +403,6 @@ dotnet_naming_rule.private_static_readonly_fields_should_be_pascalcase.severity 
 dotnet_naming_rule.enums_should_be_pascalcase.severity = error
 dotnet_naming_rule.local_functions_should_be_pascalcase.severity = error
 dotnet_naming_rule.non_field_members_should_be_pascalcase.severity = error
+
+[*.cs]
+dotnet_diagnostic.CA1021.severity = warning
