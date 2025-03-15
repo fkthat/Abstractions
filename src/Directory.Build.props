@@ -3,8 +3,8 @@
 
   <!-- Code analysis and Xml docs -->
   <PropertyGroup>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>latest-All</AnalysisLevel>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
@@ -18,6 +18,14 @@
     <AssemblyAttribute Include="System.CLSCompliantAttribute">
       <_Parameter1>true</_Parameter1>
     </AssemblyAttribute>
+  </ItemGroup>
+
+  <!-- https://devblogs.microsoft.com/nuget/add-a-readme-to-your-nuget-package/ -->
+  <PropertyGroup>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+      <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>

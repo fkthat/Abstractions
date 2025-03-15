@@ -2,7 +2,7 @@
 
   <!-- Base project properties -->
   <PropertyGroup>
-    <VersionPrefix>0.0.1</VersionPrefix>
+    <VersionPrefix>0.0.2</VersionPrefix>
     <RepositoryName>Abstractions</RepositoryName>
     <Description>Abstractions</Description>
     <PackageTags></PackageTags>
